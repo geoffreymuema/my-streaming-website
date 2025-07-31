@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Streaming Service</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text */
+        }
+        .card-gradient {
+            background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.8) 100%);
+        }
+        .hero-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.8) 100%);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header/Navigation Bar -->
+    <header class="bg-gray-900 bg-opacity-70 fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">MyStream</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300">Home</a>
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300">Movies</a>
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300">Series</a>
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300">Live TV</a>
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300">Categories</a>
+            </div>
+            <div class="hidden md:block">
+                <button class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 shadow-md">Sign In</button>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-95 py-4">
+            <div class="flex flex-col items-center space-y-4">
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300 py-2">Home</a>
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300 py-2">Movies</a>
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300 py-2">Series</a>
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300 py-2">Live TV</a>
+                <a href="#" class="text-gray-300 hover:text-white transition duration-300 py-2">Categories</a>
+                <button class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 shadow-md w-3/4">Sign In</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+            <img src="https://placehold.co/1920x1080/000000/FFFFFF?text=Epic+Movie+Banner" alt="Hero Banner" class="absolute inset-0 w-full h-full object-cover z-0">
+            <div class="absolute inset-0 hero-overlay z-10"></div>
+            <div class="relative z-20 p-4 max-w-3xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">
+                    Unlimited Movies, TV Shows & More.
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-8 drop-shadow-md">
+                    Watch anywhere. Cancel anytime.
+                </p>
+                <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    Start Your Free Trial
+                </button>
+            </div>
+        </section>
+
+        <!-- Featured Content Section -->
+        <section class="py-16 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center">Featured Movies & Series</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+                    <!-- Content Card 1 -->
+                    <div class="relative rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 group">
+                        <img src="https://placehold.co/400x600/333333/FFFFFF?text=Movie+Title+1" alt="Movie 1" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 card-gradient flex items-end p-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Adventure Quest</h3>
+                                <p class="text-gray-300 text-sm">Action, Fantasy | 2023</p>
+                                <button class="mt-2 bg-red-600 hover:bg-red-700 text-white text-sm py-1 px-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">Watch Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Card 2 -->
+                    <div class="relative rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 group">
+                        <img src="https://placehold.co/400x600/444444/FFFFFF?text=Series+Title+2" alt="Series 2" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 card-gradient flex items-end p-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Mystery of the Lost City</h3>
+                                <p class="text-gray-300 text-sm">Drama, Thriller | Season 2</p>
+                                <button class="mt-2 bg-red-600 hover:bg-red-700 text-white text-sm py-1 px-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">Watch Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Card 3 -->
+                    <div class="relative rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 group">
+                        <img src="https://placehold.co/400x600/555555/FFFFFF?text=Live+Concert+3" alt="Live Concert 3" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 card-gradient flex items-end p-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Global Music Fest</h3>
+                                <p class="text-gray-300 text-sm">Live Concert | Pop, Rock</p>
+                                <button class="mt-2 bg-red-600 hover:bg-red-700 text-white text-sm py-1 px-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">Watch Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Card 4 -->
+                    <div class="relative rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 group">
+                        <img src="https://placehold.co/400x600/666666/FFFFFF?text=Documentary+4" alt="Documentary 4" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 card-gradient flex items-end p-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Nature's Wonders</h3>
+                                <p class="text-gray-300 text-sm">Documentary | Wildlife</p>
+                                <button class="mt-2 bg-red-600 hover:bg-red-700 text-white text-sm py-1 px-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">Watch Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Card 5 -->
+                    <div class="relative rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 group">
+                        <img src="https://placehold.co/400x600/777777/FFFFFF?text=Kids+Show+5" alt="Kids Show 5" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 card-gradient flex items-end p-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">The Magical Forest</h3>
+                                <p class="text-gray-300 text-sm">Kids, Animation | New Episodes</p>
+                                <button class="mt-2 bg-red-600 hover:bg-red-700 text-white text-sm py-1 px-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">Watch Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New Content Card 6 -->
+                    <div class="relative rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 group">
+                        <img src="https://placehold.co/400x600/888888/FFFFFF?text=Sci-Fi+Series+6" alt="Sci-Fi Series 6" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 card-gradient flex items-end p-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Cosmic Odyssey</h3>
+                                <p class="text-gray-300 text-sm">Sci-Fi, Adventure | Season 1</p>
+                                <button class="mt-2 bg-red-600 hover:bg-red-700 text-white text-sm py-1 px-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">Watch Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New Content Card 7 -->
+                    <div class="relative rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 group">
+                        <img src="https://placehold.co/400x600/999999/FFFFFF?text=Comedy+Movie+7" alt="Comedy Movie 7" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 card-gradient flex items-end p-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Laugh Out Loud</h3>
+                                <p class="text-gray-300 text-sm">Comedy | 2024</p>
+                                <button class="mt-2 bg-red-600 hover:bg-red-700 text-white text-sm py-1 px-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">Watch Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New Content Card 8 -->
+                    <div class="relative rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300 group">
+                        <img src="https://placehold.co/400x600/AAAAAA/FFFFFF?text=Drama+Series+8" alt="Drama Series 8" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 card-gradient flex items-end p-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">The Family Secret</h3>
+                                <p class="text-gray-300 text-sm">Drama, Mystery | Season 3</p>
+                                <button class="mt-2 bg-red-600 hover:bg-red-700 text-white text-sm py-1 px-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">Watch Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="bg-gray-800 py-16 px-4 text-center">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-white mb-6">Ready to Watch?</h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Join MyStream today and get instant access to thousands of titles.
+                </p>
+                <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-10 rounded-full text-lg shadow-xl transform hover:scale-105 transition duration-300">
+                    Join Now
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 px-4">
+        <div class="container mx-auto text-center text-gray-400">
+            <p>&copy; 2025 MyStream. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
+                <a href="#" class="hover:text-white transition duration-300">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
